@@ -1,5 +1,6 @@
 package org.covidwatch.android.presentation.util
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.Observer
@@ -48,6 +49,7 @@ fun <T> LiveData<T>.getDistinct(): LiveData<T> {
     distinctLiveData.addSource(this, object : Observer<T> {
         private var initialized = false
         private var lastObj: T? = null
+        @SuppressLint("NullSafeMutableLiveData")
         override fun onChanged(obj: T?) {
             if (!initialized) {
                 initialized = true

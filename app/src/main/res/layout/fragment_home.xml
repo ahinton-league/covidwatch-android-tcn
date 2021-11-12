@@ -70,6 +70,16 @@
                 android:text="@string/thank_you_text" />
 
             <Button
+                android:id="@+id/view_my_journey"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginHorizontal="32dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="@color/bluejay"
+                android:text="View my journey"
+                android:textColor="@color/white" />
+
+            <Button
                 android:id="@+id/share_app_button"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"

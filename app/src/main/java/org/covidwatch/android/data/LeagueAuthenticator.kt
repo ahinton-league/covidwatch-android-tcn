@@ -1,0 +1,7 @@
+package org.covidwatch.android.data
+
+import life.league.networking.content.ContentAPIAuthenticator
+import life.league.networking.rest.LeagueRestAPIAuthenticator
+import life.league.networking.socket.LeagueSocketAPIAuthenticator
+
+interface LeagueAuthenticator : LeagueSocketAPIAuthenticator, ContentAPIAuthenticator, LeagueRestAPIAuthenticator

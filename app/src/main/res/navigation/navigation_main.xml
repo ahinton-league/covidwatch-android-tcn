@@ -40,6 +40,12 @@
         <action
             android:id="@+id/action_homeFragment_to_settingsFragment"
             app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_health_journey_nav_graph"
+            app:destination="@id/launchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_launchFragment"
+            app:destination="@id/launchFragment" />
     </fragment>
     <fragment
         android:id="@+id/testQuestionsFragment"
@@ -77,4 +83,13 @@
         android:name="org.covidwatch.android.presentation.test.PotentialRiskFragment"
         android:label="PotentialRiskFragment"
         tools:layout="@layout/fragment_potential_risk"/>
+    <include app:graph="@navigation/health_journey_nav_graph" />
+    <fragment
+        android:id="@+id/launchFragment"
+        android:name="org.covidwatch.android.presentation.auth.LaunchFragment"
+        android:label="LaunchFragment" >
+        <action
+            android:id="@+id/action_launchFragment_to_health_journey_nav_graph"
+            app:destination="@id/health_journey_nav_graph" />
+    </fragment>
 </navigation>

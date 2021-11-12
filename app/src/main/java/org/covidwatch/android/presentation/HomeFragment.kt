@@ -100,6 +100,9 @@ class HomeFragment : Fragment() {
         binding.toolbar.menuButton.setOnClickListener {
             findNavController().navigate(R.id.menuFragment)
         }
+        binding.viewMyJourney.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_launchFragment)
+        }
         binding.shareAppButton.setOnClickListener {
             shareApp()
         }

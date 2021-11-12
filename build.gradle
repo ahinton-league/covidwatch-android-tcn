@@ -2,22 +2,25 @@
 apply plugin: "org.sonarqube"
 
 buildscript {
-    ext.kotlin_version = '1.3.71'
+    ext.kotlin_version = '1.4.32'
     repositories {
         google()
         jcenter()
-        maven {
-            url 'https://maven.fabric.io/public'
-        }
+//        maven {
+//            url 'https://maven.fabric.io/public'
+//        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.3'
+        classpath 'com.android.tools.build:gradle:7.0.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'com.google.gms:google-services:4.3.3'
         classpath "com.vanniktech:gradle-android-junit-jacoco-plugin:0.16.0"
         classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8"
         // Add the Fabric Crashlytics plugin.
-        classpath 'io.fabric.tools:gradle:1.31.2'
+//        classpath 'io.fabric.tools:gradle:1.31.2'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.0-beta02"
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.0'
+
     }
 }
 
@@ -25,7 +28,13 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url 'https://jitpack.io'}
+        maven {
+            url 'https://jitpack.io'
+            credentials { username authToken }
+        }
+        maven {
+            url "https://salesforce-marketingcloud.github.io/MarketingCloudSDK-Android/repository"
+        }
     }
 }
 
@@ -54,5 +63,154 @@ subprojects {
         }
     }
 
+
+}
+
+
+ext {
+    compileSdkVersion = 31
+    minSdkVersion = 23
+    targetSdkVersion = 31
+    leagueCoreNetworkingAuthVersion = '7.0.0'
+    genesisVersion = '4.3.2'
+    // Compose
+    accompanistPagerVersion = '0.20.0'
+    composeNavigationVersion = '2.3.0'
+    composeViewModelVersion = '2.4.0'
+    constraintLayoutVersion = '2.1.1'
+    lifecycleVersion = '2.4.0'
+    // Material
+    materialVersion = '1.4.0'
+    // Joda time
+    jodaVersion = '2.10.12.2'
+
+
+
+
+
+
+    // App dependencies
+
+    // League modules
+    genesisVersion = '4.3.2'
+
+    supportLibraryVersion = '29.0.0'
+    hamcrestVersion = '1.3'
+    runnerVersion = '1.0.2'
+    rulesVersion = '1.0.2'
+    espressoVersion = '2.2.2'
+
+    // Compose
+    composeVersion = '1.0.5'
+    constraintLayoutComposeVersion = '1.0.0-rc01'
+    activityComposeVersion = '1.4.0'
+    accompanistPagerVersion = '0.20.0'
+    composeNavigationVersion = '2.3.0'
+    composeViewModelVersion = '2.4.0'
+
+    // AndroidX
+    coreKtxVersion = '1.6.0'
+    appCompatVersion = '1.3.1'
+    exifInterfaceVersion = '1.3.3'
+    constraintLayoutVersion = '2.1.1'
+    cardViewVersion = '1.0.0'
+    recyclerViewVersion = '1.2.1'
+    browserVersion = '1.3.0'
+    fragmentVersion = '1.2.4'
+    fragmentKtxVersion = '1.3.6'
+    drawerLayoutVersion = '1.1.1'
+    preferenceVersion = '1.1.1'
+    legacyV13Version = '1.0.0'
+    legacyV4Version = '1.0.0'
+    lifecycleVersion = '2.4.0'
+    coreTestingVersion = '2.1.0'
+    cameraVersion = '1.0.0-beta07'
+    cameraViewVersion = '1.0.0-alpha14'
+    swipeRefreshLayoutVersion = '1.1.0'
+
+    tagManager = '17.0.1'
+    coreTestVersion = '1.4.0'
+    biometricsVersion = '1.1.0'
+    workRuntimeVersion = '2.4.0'
+
+    // Not using v2.4 which introduced a deep linking bug, when that's fixed; navigationVersion and
+    // navigationSafeArgsVersion should be merged back into one variable
+    navigationVersion = '2.3.3'
+
+    // Epoxy
+    epoxyVersion = '4.6.4'
+    epoxyProcessorVersion = '4.6.4'
+
+    // Material
+    materialVersion = '1.4.0'
+
+    // Coroutine
+    coroutineVersion = '1.5.2'
+    coroutineTestVersion = '1.5.2'
+
+    // OkHTTP
+    okHttpVersion = '4.9.2'
+
+    // Joda time
+    jodaVersion = '2.10.12.2'
+
+    // Moshi
+    moshiVersion = '1.12.0'
+    moshiAdaptersVersion = '1.12.0'
+    moshiKotlinVersion = '1.12.0'
+    moshiKotlinCodegenVersion = '1.12.0'
+
+    // firebase
+    crashlyticsVersion = '18.2.4'
+    firebaseCoreVersion = '20.0.0'
+    // New versions of firebase perf require it to be initialized on app start. We'll need to wrap it's usages in an interface and inject it into core and networking to upgrade it
+    firebasePerfVersion = '19.1.1'
+    firebaseAnalyticsVersion = '20.0.0'
+    firebaseCrashlyticsExtensionVersion = '18.2.3'
+    firebaseMessagingVersion = '23.0.0'
+    firebaseDynamicLinksVersion = '21.0.0'
+    firebaseBomVersion = '29.0.0'
+
+    // Salesforce
+    salesforceMarketingcloudVersion = '8.0.1'
+
+    // Retrofit
+    retrofitVersion = '2.9.0'
+    retrofitMoshiConverterVersion = '2.9.0'
+    loggingInterceptorVersion = '4.9.2'
+
+    // koin
+    koinVersion = '3.1.2'
+
+    // google play services
+    fitnessVersion = '20.0.0'
+    authVersion = '19.2.0'
+
+    // Room
+    roomVersion = '2.3.0'
+    cryptoVersion = '1.1.0-alpha02'
+
+    // SQL Cipher
+    sqlCipherVersion = '4.5.0'
+
+    // Junit
+    junitVersion = '4.13.2'
+
+    // Robolectric
+    robolectricVersion = '4.6.1'
+
+    // Mockk
+    mockkVersion = '1.12.0'
+
+    // Turbine
+    turbineVersion = '0.6.1'
+
+    // Leak Canary
+    leakCanaryVersion = '2.7'
+    leakCanaryNoOpVersion = '1.6.3'
+
+    // Mockito (deprecated, use mockk instead)
+    mockitoVersion = '4.0.0'
+    mockitoKotlinVersion = '2.2.0'
 
 }

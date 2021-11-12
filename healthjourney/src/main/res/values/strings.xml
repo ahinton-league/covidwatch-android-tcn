@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?><!-- TODO: Pluralize strings correctly HP-770 and HP-771 -->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="articles">Articles</string>
+    <string name="health_at_work">Health@Work</string>
+    <string name="already_signed_up">You\'re already signed up!</string>
+    <string name="read_length">%1$s mins</string>
+    <string name="content_unavailable">Content is currently unavailable</string>
+    <string name="broken_link_message">Sorry, this link doesn\'t seem to be working right now. Please try again later.</string>
+    <string name="chat_disclaimer_clinic_disabled">This business is no longer active on League</string>
+    <string name="previous">Previous</string>
+    <string name="welcome">Welcome to our Health Rewards Program!</string>
+    <string name="welcome_description">It’s time to select a program that best fits your health and wellness needs.</string>
+    <string name="build_healthy_habits">Build healthy habits</string>
+    <string name="build_healthy_habits_description">Based on the program you select, each day we’ll give you simple goals to help you develop healthy habits that improve your overall well-being.</string>
+    <string name="get_rewarded">Get rewarded</string>
+    <string name="get_rewarded_description">Each completed activity gives you points you can redeem for League Credit usable in our online Marketplace.</string>
+    <string name="agree_to_terms_to_begin">You must agree to the terms and conditions to begin</string>
+    <string name="tomorrow">Tomorrow</string>
+    <string name="starts_in">Starts in %d hrs</string>
+    <string name="expires_in">Expires in %d hrs</string>
+    <string name="your_activity_for_today">Your activity for today</string>
+    <string name="expired">Expired</string>
+    <string name="expired_message">Your account expired on:</string>
+    <string name="pending_header">Activation Pending</string>
+    <string name="pending_message">Your account is active, and in the process of being set up.</string>
+    <string name="activation_pending_header">Activation Pending</string>
+    <string name="activation_pending_message">Your account will be active on:</string>
+    <string name="lets_get_started">Let\'s get started!</string>
+    <string name="leave_program">Leave Program</string>
+    <string name="stay_in_program">Stay in Program</string>
+    <string name="your_progress">Your Progress</string>
+    <string name="program_ended_title">Program has ended. Ready to start a new one?</string>
+    <string name="program_ended_message">Start a new program to continue earning rewards for completing activities!</string>
+    <string name="get_inpsired_admin_url">https://league.com/blog/categories/future-of-work/?isapp=1</string>
+    <string name="get_inspired_member_url">https://blog.league.com/category/member/?isapp=1</string>
+    <string name="having_trouble_finding_the_right_program">Having trouble finding the right program?</string>
+    <string name="chat_with_a_registered_nurse">Chat with a Registered Nurse!</string>
+    <string name="registered_nurse">Registered nurse</string>
+    <string name="registered_nurse_description">Get the answers and advice you need on health-related topics, including signs, symptoms and treatment options.\nThis chat is free, confidential and your privacy is protected. </string>
+    <string name="health_programs_error">We\'re sorry, there was an error loading your Health Programs. Please try again later.</string>
+    <string name="health_categories_description">Our Health Programs help you proactively reach your health goals and maintain a healthy lifestyle.</string>
+    <string name="categories">Categories</string>
+    <string name="featured">Featured</string>
+    <string name="recommended">Recommended</string>
+
+    <plurals name="points_verbose">
+        <item quantity="one">Earn up to %1$,d point</item>
+        <item quantity="other">Earn up to %1$,d points</item>
+    </plurals>
+
+    <plurals name="points">
+        <item quantity="one">%1$,d point</item>
+        <item quantity="other">%1$,d points</item>
+    </plurals>
+
+    <plurals name="months">
+        <item quantity="one">%d month</item>
+        <item quantity="other">%d months</item>
+    </plurals>
+    <plurals name="months_remaining">
+        <item quantity="one">%1$,d month remaining</item>
+        <item quantity="other">%1$,d months remaining</item>
+    </plurals>
+
+    <plurals name="weeks">
+        <item quantity="one">%d week</item>
+        <item quantity="other">%d weeks</item>
+    </plurals>
+    <plurals name="weeks_remaining">
+        <item quantity="one">%1$,d week remaining</item>
+        <item quantity="other">%1$,d weeks remaining</item>
+    </plurals>
+
+    <plurals name="days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <plurals name="days_remaining">
+        <item quantity="one">%1$,d day remaining</item>
+        <item quantity="other">%1$,d days remaining</item>
+    </plurals>
+
+    <plurals name="start_more_programs">
+        <item quantity="one">Start %d more program</item>
+        <item quantity="other">Start %d more programs</item>
+    </plurals>
+
+    <plurals name="activities">
+        <item quantity="one">%d activity</item>
+        <item quantity="other">%d activities</item>
+    </plurals>
+
+    <string name="start_health_program_unlimited">Start more programs</string>
+    <string name="program_details_caption_format_with_points_weeks" tools:ignore="PluralsCandidate">%1$d week program • %2$s • Earn up to %3$,d points</string>
+    <string name="program_details_caption_format_without_points_weeks" tools:ignore="PluralsCandidate">%1$d week program • %2$s</string>
+    <string name="program_details_caption_format_with_points_days" tools:ignore="PluralsCandidate">%1$d day program • %2$s • Earn up to %3$,d points</string>
+    <string name="program_details_caption_format_without_points_days" tools:ignore="PluralsCandidate">%1$d day program • %2$s</string>
+    <string name="view_all">View all</string>
+    <string name="error_category_not_found">We\'re sorry, there was an error loading that category.</string>
+    <string name="start_health_program">Start Health Program</string>
+    <string name="add_to_journey">Add to Journey</string>
+    <string name="read_more">READ MORE</string>
+    <string name="see_more">SEE MORE</string>
+    <string name="helpful_tips">Helpful Tips</string>
+    <string name="i_agree_to_these">I agree to these</string>
+    <string name="terms_and_conditions"><![CDATA[<U>Terms and Conditions</U>]]></string>
+    <string name="terms_and_conditions_normal">Terms and Conditions</string>
+    <string name="let_s_get_started">Let\'s Get Started!</string>
+    <plurals name="start_program_description_format_weeks">
+        <item quantity="one">Are you ready to start the %1$s Health Program? We will send an activity each day for the next week to help you reach your goals!</item>
+        <item quantity="other">Are you ready to start the %1$s Health Program? We will send an activity each day for the next %2$d weeks to help you reach your goals!</item>
+    </plurals>
+    <plurals name="start_program_description_format_days">
+        <item quantity="one">Are you ready to start the %1$s Health Program? We will send an activity to help you reach your goals!</item>
+        <item quantity="other">Are you ready to start the %1$s Health Program? We will send an activity each day for the next %2$d days to help you reach your goals!</item>
+    </plurals>
+    <string name="error_start_program">We\'re sorry, there was an error enrolling you in that Health Program. Please try again later.</string>
+    <string name="active_program_error">We\'re sorry, there was an error loading your active Health Program. Please try again later.</string>
+    <string name="active">Active</string>
+    <string name="todays_activity">TODAY\'S ACTIVITY</string>
+    <string name="tomorrows_activity">TOMORROW\'S ACTIVITY</string>
+    <string name="completed_activity">I\'ve Completed This Activity</string>
+    <string name="activity_details_error">We\'re sorry, there was an error loading your current activity details. Please try again later.</string>
+    <string name="check_back_tomorrow">Check Back Tomorrow</string>
+    <string name="todays_activity_lower">Today\'s Activity</string>
+    <string name="tomorrows_activity_lower">Tomorrow\'s Activity</string>
+    <string name="error_complete_activity">We\'re sorry, there was an error completing your activity, please try again later.</string>
+    <string name="skip_this_activity">Skip This Activity</string>
+    <string name="skip_message">The activity will be marked as incomplete and you won’t receive points for it.</string>
+    <string name="skip_upper">SKIP</string>
+    <string name="cancel_upper" tools:ignore="ButtonCase">CANCEL</string>
+    <string name="error_skip_activity">We\'re sorry, there was an error skipping your activity. Please try again later.</string>
+    <string name="youve_earned">You\'ve earned</string>
+    <string name="youve_earned_total">You\'ve earned a total of</string>
+    <string name="generic_activity_completion">Amazing job! Come back tomorrow for another Health Activity and continue your health journey!</string>
+    <string name="come_back_tomorrow">Amazing job! Come back tomorrow for another Health Activity and continue your health journey!</string>
+    <string name="number_of_points" tools:ignore="PluralsCandidate">%,d points</string>
+    <string name="amazing_job">Amazing job! %s</string>
+    <string name="view_my_rewards">View My Rewards</string>
+    <string name="programs">Programs</string>
+    <string name="health_programs">Health Programs</string>
+    <string name="chat_link">Chat with your Care Team</string>
+    <string name="rewards">Rewards</string>
+    <string name="leave_program_name">Leave %s?</string>
+    <string name="leave_program_disclaimer">Any progress in this program will be reset and you’ll need to start over.</string>
+    <string name="error_leave_program">We\'re sorry, there was an error leaving your Health Program. Please try again later.</string>
+    <string name="let_s_do_this">Let\'s do this!</string>
+    <string name="view_activity">View Activity</string>
+    <string name="select_a_new_program">Select a New Program</string>
+    <string name="day_n">DAY %d</string>
+    <string name="week_number_format">Week %d</string>
+    <string name="weekly_activities">Weekly Activities</string>
+    <string name="start_program_unlock">Start this program to unlock these activities!</string>
+    <string name="health">health</string>
+    <string name="quick_actions_error">We\'re sorry, there was an error loading your quick actions. Please try again later.</string>
+    <string name="certify_info_accurate_final_approval_can">I certify that the information provided is accurate and that proposed plan changes are subject to final approval. Additional documentation may be required for verification. If found not to meet the relevant criteria, dependents or elections can be revoked anytime.</string>
+    <string name="if_enrollment_not_complete_you_have_to_restart">If you do not complete your enrollment, your elections will not be saved and you’ll have to restart.</string>
+    <string name="once_you_submit_add_to_health_spending_account">Once you submit, you\'ll be able to add your dependent to your Health Spending Account. This change will take effect immediately and no further action is required on your end.</string>
+    <string name="i_understand_dependent_only_covered_on_health_spending_account">I understand this dependent will only be covered on my Health Spending Account. I certify that the information I provided is accurate and is subject to final approval. Additional documentation may be required for verification. If found not to meet the relevant criteria, dependents or elections can be revoked at anytime.</string>
+    <string name="lets_know_your_loved_ones">Let’s get to know your loved ones!</string>
+    <string name="if_no_one_you_can_skip">If you don’t have anyone to add you can skip this step.</string>
+    <string name="next_review_plans">Next: Review Plans</string>
+    <string name="benefits">Benefits</string>
+    <string name="load_module_error">We\'re sorry, there was an error loading this module, please try again later.</string>
+    <string name="select_dots">Select…</string>
+    <string name="error_submitting">We\'re sorry, there was an error submitting your answer. Please try again.</string>
+    <string name="question_of">QUESTION %1$d OF %2$d</string>
+    <string name="save_and_exit">Save Progress and Exit</string>
+    <string name="keep_going">Keep Going</string>
+    <string name="full_picture_title">It won’t take long to build a full picture of your health.</string>
+    <string name="hpb_exit_description" tools:ignore="PluralsCandidate">Finish up to get personalized insights and content to support your health journey—plus %,d reward points.</string>
+    <string name="hpb_exit_points_text" tools:ignore="PluralsCandidate">COMPLETE TO EARN %d POINTS.</string>
+    <string name="hpb_success_points_text" tools:ignore="PluralsCandidate">You’ve Earned %d points.</string>
+    <string name="are_you_ready_to_submit">Are you ready to submit?</string>
+    <string name="once_you_submit_answers_can_t_be_changed">Once you submit, answers can’t be changed.</string>
+    <string name="submit_profile_message">They form your baseline health profile and help give us a clearer picture of your health by benchmarking your progress over time.</string>
+    <string name="you_ve_completed_your_health_profile">You completed your Health Profile.</string>
+    <string name="view_results">View Your Health Profile</string>
+    <string name="exit_hp">Exit Health Profile</string>
+    <string name="hpb_complete_description">Based on your responses, we’ve created some recommended areas of focus to help prioritize and set your personal health goals.</string>
+    <string name="hpb_complete_points">YOU\'VE EARNED %d POINTS</string>
+    <string name="hpd_submit_error">We\'re sorry, there was an error submitting your health profile. Please try again.</string>
+    <string name="num_questions">%d QUESTIONS</string>
+    <string name="welcome_start_building_health_profile">Welcome. Let’s start building your Health Profile.</string>
+    <string name="hpb_intro_description">We’ll cover six areas of health to help you understand your needs and define your goals. Each area has 5–7 questions.</string>
+    <string name="health_profile_build_time">It’ll only take about 5–10 minutes.</string>
+    <string name="how_helpful_was_this_info">How helpful was this information?</string>
+    <string name="unhelpful">Unhelpful</string>
+    <string name="helpful">Helpful</string>
+    <string name="view_health_profile">View Your Health Profile</string>
+    <string name="reward_points">Reward Points</string>
+    <string name="health_profile">Health Profile</string>
+    <string name="health_programs_for_you">Health Programs for you</string>
+    <string name="health_profile_health_programs_desc">Complete activities to reach your health goals. Recommended based on your Health Profile.</string>
+    <string name="begin">Begin</string>
+    <string name="past">Past</string>
+    <string name="top_focus_area">TOP FOCUS AREA</string>
+    <string name="learn_more">Learn More</string>
+    <string name="learn_more_lowercase">Learn more</string>
+    <string name="recommended_for_you">Recommended for you</string>
+    <string name="health_match">League Health Match</string>
+    <string name="other_resources">More great resources</string>
+    <string name="league_health_program">League Health Program</string>
+    <string name="health_need_error">We\'re sorry, there was an error loading your focus area</string>
+    <string name="health_profile_error">"We're sorry, there was an error loading your health profile. Please try again later."</string>
+    <string name="health_journey_error">We\'re sorry, there was an error loading your health journey</string>
+    <string name="top_match">Top match</string>
+    <string name="view_more">View more</string>
+    <string name="empty_string" translatable="false" />
+    <string name="view_all_programs"><![CDATA[View All Programs >]]></string>
+    <string name="complete">Complete</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="day_n_of_n">Day %1$d of %2$d</string>
+    <string name="program_activities">Program Activities</string>
+    <string name="day">Day</string>
+    <string name="help_goal_activity">Have any questions about today\'s activity?</string>
+    <string name="health_programs_desc">Health programs are broken down into daily or weekly activities that will help you get closer to your health goals.</string>
+    <string name="lets_keep_going">Let’s Keep Going!</string>
+    <string name="start_new_program">Start a New Health Program</string>
+    <string name="view_this_program">View this program</string>
+    <string name="view_this_resource">View this resource</string>
+    <string name="submit">Submit</string>
+    <string name="yes_going_to_work">Yes, I plan on going into work</string>
+    <string name="no_not_going_to_work">No, I\'m not going into work today</string>
+    <string name="are_you_planning_on_going_into_work_today">Are you planning on going into work today?</string>
+    <string name="if_so_you_need_to_answer_questions">If so, you’ll need answer a few questions about symptoms, travel, and contact you’ve had with others before entering the workplace.</string>
+    <string name="close">Close</string>
+    <string name="thanks_for_checking_in">Thanks for checking in!</string>
+    <string name="if_you_experience">If you do begin to experience any sudden symptoms, we strongly recommend checking back in with us to complete the daily health assessment.</string>
+    <string name="have_your_repsonses_changed_since_your_last_checkin">Review your last responses for a faster check-in</string>
+    <string name="no_changes">No changes</string>
+    <string name="yes_update_status">Yes, update my health status</string>
+    <string name="learn_more_in_our_privacy_policy">Learn more in our Privacy Policy</string>
+    <string name="your_responses_are_safe">Your responses are safe with us. Your participation status will be shared with your employer but individual responses will not be shared without consent.</string>
+    <string name="by_continuing"><![CDATA[By continuing, you agree to the <font color=\'#%1$s\'>Terms of service</font> and <font color=\'#%1$s\'>Privacy policy</font> that League will not be liable for any harm.]]></string>
+    <string name="privacy_policy_error">We\'re sorry, there was an error loading the privacy policy. Please try again.</string>
+    <string name="accept_and_begin">Accept and Begin</string>
+    <string name="continue_assessment">Continue</string>
+    <string name="share_my_cleared_for_workplace_status_with_the_designated_hr_contact">Share my cleared-for-workplace status with the designated HR contact.</string>
+    <string name="congrats_you_completed">Congrats, you\'ve completed</string>
+    <string name="additional_resources">Additional resources to help</string>
+    <string name="your_responses">Your responses</string>
+    <string name="last_completed">Last completed %s</string>
+    <string name="screener_results_error">We\'re sorry, there was an error loading your Daily Health Assessment results, please try again</string>
+    <string name="share_assessment">Share my assessment status</string>
+    <string name="yes_share_assessment">Yes, share my assessment status</string>
+    <string name="retake_assessment">Retake my health assessment</string>
+    <string name="you_re_almost_done">You\'re almost done!</string>
+    <string name="see_what_information_will_be_shared">See what information will be shared</string>
+    <string name="do_not_share">Exit, do not share my status</string>
+    <string name="custom_exit_description_no_datashare">If you choose not to share your assessment status you will not be cleared to enter the workplace. If you have any questions, reach out to your manager.</string>
+    <string name="before_return_fast_track">To speed things up, you can submit the same responses as last time or you can start over to retake the assessment.</string>
+    <string name="learn_more_about_shared">See what information will be shared</string>
+    <string name="before_returning">Before you’re able to return, you’ll need to share your cleared-for-workplace status with a designated contact from your HR team.</string>
+    <string name="before_returning_red">Before you’re able to return, you’ll need to share your cleared-for-workplace status with a designated contact from your HR team.</string>
+    <string name="can_we_share_return_status">Can we share your cleared-for-workplace status with a designated contact from your HR team?</string>
+    <string name="can_we_share">Can we share your cleared for workplace status?</string>
+    <string name="what_will_be_shared">What will be shared</string>
+    <string name="share_info_desc_1">Your status, indicating whether you can go into workplace today or whether you have tested positive for COVID-19, and whether you’ve complete today’s assessment will be shared with a designated person from your HR team.</string>
+    <string name="your_responses_caps">YOUR RESPONSES</string>
+    <string name="what_will_be_added">What will not be shared</string>
+    <string name="your_individual">Your individual health conditions or responses to previous questions will not be shared.</string>
+    <string name="learn_more_privacy_link">Learn more in our Privacy Policy</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="cleared_message"><![CDATA[Based on your employer’s policy, it looks like you <b>can be cleared</b> to enter the workplace today.]]></string>
+    <string name="not_cleared_message"><![CDATA[Based on your employer’s policy, it looks like you <b>will not be cleared</b> to enter the workplace today.]]></string>
+    <string name="cleared_message_fast_track"><![CDATA[If nothing has changed, it looks like you <b>can be cleared</b> to enter the workplace today.]]></string>
+    <string name="not_cleared_message_fast_track"><![CDATA[If nothing has changed, it looks like you <b>will not be cleared</b> to enter the workplace today.]]></string>
+    <string name="error_submit">We\'re sorry, there was an error submitting your response. Please try again</string>
+    <string name="need_to_start_over">Need to start over?</string>
+    <string name="get_answers">Get answers, advice and support in real time.</string>
+    <string name="chat_with_our_care_team">Chat with our care team who will listen, answer your questions, and connect you with resources to help you cope. It’s free and totally confidential.</string>
+    <string name="chat_with_a_nurse">Chat with a registered nurse</string>
+    <string name="for_program">For the program "%s".</string>
+    <string name="join_pco_points_for_health_activities">Join our loyalty program to earn points for completing daily activities.</string>
+    <string name="missing_out_on_points">You\'re missing out on points</string>
+    <string name="when_do_you_plan_on_returning_to_work">When do you plan on returning to work?</string>
+    <string name="return_to_work_date_desc">We’ll let your employer know and resume your daily reminders at this date. You can change or extend this date at any time.</string>
+    <string name="confirm_date">Confirm Date</string>
+    <string name="change_return_date">Change return date</string>
+    <string name="please_select">Please select an option…</string>
+    <string name="submit_same">Submit the same responses</string>
+    <string name="start_over">Start over</string>
+    <string name="loading_error">Oops, there seems to have been a problem.</string>
+    <string name="empty_bottle">Empty bottle</string>
+    <string name="paused_until">Paused until %s</string>
+    <string name="hp_submit_first_time">We\'re calculating recommended health goals and areas of focus."</string>
+    <string name="building_your_profile">Building your profile...</string>
+    <string name="update_edit_profile_submit_description">Sit tight. We’re seeing if there are any new focus areas and health goals for you.</string>
+    <string name="health_profile_builder_info_content_description">Health profile information</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="journey">Journey</string>
+    <string name="health_journey">Health Journey</string>
+    <string name="activities">Activities</string>
+    <string name="program_library">Program Library</string>
+    <string name="progress">Progress</string>
+    <string name="this_month">This month</string>
+    <string name="this_week">This week</string>
+    <string name="later">Later</string>
+    <string name="preview">Preview</string>
+    <string name="preview_description">Get a sneak peek at activities that will be available soon.</string>
+    <string name="see_whats_coming_up_next">See what’s coming up next</string>
+    <string name="mark_as_done">Mark as done</string>
+    <string name="remove_activity">Remove activity</string>
+    <string name="nothing_here_yet">Nothing here yet!</string>
+    <string name="no_activities_yet">No activities yet</string>
+    <string name="hj_empty_activities">Tap the \'Add\' button to explore programs and start your Health Journey. </string>
+    <string name="suggested">Suggested</string>
+    <string name="remove_activity_confirmation_message">Are you sure you want to remove this activity from your journey?</string>
+    <string name="remove_program_confirmation_message">Are you sure you want to remove this program from your journey?</string>
+
+    <plurals name="earn_points_count">
+        <item quantity="one">Earn %d point</item>
+        <item quantity="other">Earn %d points</item>
+    </plurals>
+    <plurals name="you_earned_points_count">
+        <item quantity="one">You earned %d point</item>
+        <item quantity="other">You earned %d points</item>
+    </plurals>
+    <plurals name="points_alert">
+        <item quantity="one">+ %d PC Optimum point</item>
+        <item quantity="other">+ %d PC Optimum points</item>
+    </plurals>
+    <plurals name="come_back_in">
+        <item quantity="one">Come back in %d day to complete it.</item>
+        <item quantity="other">Come back in %d days to complete it.</item>
+    </plurals>
+
+    <string name="expires_on">Expires on %s</string>
+    <string name="available_on">Available on %s</string>
+    <string name="you_re_done">You\'re done!</string>
+    <string name="activity_removed">Activity Removed</string>
+    <string name="program_removed">Program Removed</string>
+    <string name="no_longer_see_in_journey">You’ll no longer see it in your journey</string>
+    <string name="activities_completed">%s complete</string>
+    <string name="completed">Completed</string>
+    <string name="missed">Missed</string>
+    <string name="activities_missed">%d missed</string>
+
+    <string name="update_your_health_profile">Update your Health Profile</string>
+    <string name="health_profile_last_updated">Last updated %1$s</string>
+    <string name="recent_changes_health_profile">Have there been any recent changes in your health?</string>
+    <string name="health_profile_up_to_date">Your Health Profile is now up-to-date.</string>
+    <string name="hpb_complete_description_retake">Based on your updates, you may see some changes to your focus areas and list of featured Health Programs. This helps keep your app experience personalized just for you.</string>
+
+    <string name="covid_privacy_terms_of_service">Learn more about our privacy policy and terms of conditions.</string>
+
+    <string name="active_programs">Active Programs</string>
+    <string name="keep_the_momentum">Keep the momentum going.</string>
+    <string name="reached_program_limit">You’ve reached your program limit!</string>
+    <string name="havent_started_programs">You haven\'t started any health programs</string>
+    <string name="tap_add_to_browse_programs">Tap the \'Add\' button to browse programs.</string>
+    <string name="all_programs">All programs</string>
+    <string name="program_enrollment_limit_banner_message">You\'ve reached your program limit. Complete an active program before adding a new one. <b>Learn why</b></string>
+    <string name="remove_from_journey">Remove from Journey</string>
+    <string name="program_limit_message_title">You\'ve reached your program limit.</string>
+    <string name="program_limit_message_description">Complete one of your active programs to add this to your journey.</string>
+    <string name="wearable_league_consent_error">"We're sorry, there was an error accepting consent. Please try again later."</string>
+    <string name="activity_recognition_permissions_denied_error">Sorry, permissions have been denied for this action. Please use your device settings to enable access to Physical Activity.</string>
+    <string name="wearable_consent_not_given_error">To continue please check the box to accept terms of use and privacy policy.</string>
+    <string name="nothing_connected_title">Nothing connected at the moment.</string>
+    <string name="nothing_connected_description">Apps and devices that are connected to your account will show up here.</string>
+    <string name="apps_and_devices">Apps &amp; Devices</string>
+    <string name="apps_and_devices_description">You have granted these applications access to your health data.</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="cancel">Cancel</string>
+    <string name="disconnect_google_fit_title">Are you sure you want to disconnect Google Fit?</string>
+    <string name="disconnect_google_fit_description">This will prevent League from automatically syncing and using your health related data.</string>
+    <string name="add_all_caps">ADD</string>
+    <string name="active_all_caps">ACTIVE</string>
+    <string name="details_title">Details</string>
+    <string name="activities_title_with_count">Activities (%d)</string>
+    <string name="done">Done</string>
+    <string name="open_to_continue">Open to continue</string>
+
+
+    <string name="track_progress_automatically">Track your progress automatically</string>
+    <string name="track_progress_automatically_description">Connect your favourite health apps and devices to automatically mark a subset of activities as complete.</string>
+    <string name="connect_your_apps_and_devices">Connect your apps and devices</string>
+    <string name="health_journey_not_now">Not now</string>
+    <string name="connected_health_program">Connected health program</string>
+    <string name="connect_your_data">Connected your %s for the optimal program experience</string>
+
+    <string name="steps">Steps</string>
+    <string name="calories_expended">Calories Expended</string>
+    <string name="move_minutes">Move Minutes</string>
+    <string name="and">&#160;and&#160;</string>
+    <string name="health_journey_unsupported_completion_type">You\'ll need to update your app to complete this activity. Learn more.</string>
+    <string name="health_journey_heads_up">HEADS-UP!</string>
+    <string name="health_journey_update_app_to_continue">Update your app to continue</string>
+    <string name="health_journey_incompatible_app_version">This activity is incompatible with the app version you\'re using.</string>
+    <string name="health_journey_maybe_later">Maybe later</string>
+    <string name="health_journey_go_to_play_store">Go to the Play Store</string>
+    <string name="health_journey_x_of_y">%d of %d</string>
+    <string name="health_journey_leave_activity_confirmation_title">Are you sure you want to leave this activity?</string>
+    <string name="health_journey_leave_activity_confirmation_subtitle">Your progress won’t be saved and you will have to restart the activity from the beginning.</string>
+    <string name="health_journey_leave_activity">Leave activity</string>
+    <string name="health_journey_keep_going">Keep going</string>
+    <string name="ws_connect_to_ws">Connect at a PC Health Station</string>
+    <string name="ws_add_guest_reading">Add a guest session reading</string>
+    <string name="health_journey_remove">Remove</string>
+    <string name="health_journey_ok">OK</string>
+    <string name="health_journey_today">Today</string>
+    <string name="health_journey_points_system_error">Oops, there seems to have been a problem.</string>
+
+    <string name="health_journey_your_progress">Your progress</string>
+    <string name="health_journey_percentage_complete">%1$s complete</string>
+    <string name="health_journey_max_progress">/ %1$s %2$s</string>
+    <string name="health_journey_progress_disclaimer">There may be a short delay syncing your progress, please check your health app/device for real-time updates.</string>
+
+    <string name="health_journey_no_active_health_programs"> No active health programs (yet!)</string>
+    <string name="health_journey_add_program_to_track">Add a program and track your progress here.</string>
+    <string name="health_journey_view_programs">View programs</string>
+    <string name="add_programs_or_suggested_activities">Tap the \'Add\' button to find new programs or browse a curated list of activities chosen just for you.</string>
+    <string name="browse_suggest_activities">Browse a curated list of activities chosen just for you.</string>
+    <string name="rest_day">Rest Day</string>
+    <string name="rest_day_description">Looks like you took this day to relax and recover.</string>
+    <string name="nothing_planned_yet">Nothing planned yet</string>
+    <string name="no_activities_scheduled">You don’t have any activities scheduled for this day.</string>
+    <string name="on_a_roll">Well done, you’re on a roll!</string>
+    <string name="come_back_tomorrow_or_browse_suggested_activities">Come back tomorrow for more or browse through suggested activities.</string>
+    <string name="health_journey_earn_achievement">Earn an achievement for completing all activities in this program.</string>
+
+</resources>

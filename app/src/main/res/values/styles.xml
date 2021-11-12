@@ -1,14 +1,71 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+<!--    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">-->
+<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="android:fontFamily">@font/montserrat</item>-->
+<!--        <item name="android:textColor">@color/primaryText</item>-->
+<!--    </style>-->
+
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Genesis.League">
+
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textColor">@color/primaryText</item>
+
+
+<!--        <item name="android:actionOverflowButtonStyle">@style/ActionButton.Overflow.Icon</item>-->
+
+        <!-- colorPrimaryDark is used for the status bar -->
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+
+        <!-- colorAccent is used as the default value for colorControlActivated, which is used to tint widgets -->
+
+        <!-- used to style switch track color -->
+        <item name="android:colorForeground">@android:color/darker_gray</item>
+
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="fontFamily">@font/opentype</item>
+
+<!--        <item name="preferenceTheme">@style/League.Settings</item>-->
+
+
+<!--        <item name="drawable_feedback_form">@drawable/ic_calendar</item>-->
+<!--        <item name="drawable_chat_waiting_room">@raw/loading_chat_animation</item>-->
+<!--        <item name="drawable_chat_unavailable">@drawable/ic_running</item>-->
+<!--        <item name="drawable_notice">@drawable/placeholder_image_league</item>-->
+<!--        <item name="drawable_health_profile_builder_submit">@drawable/ic_hpb_submit</item>-->
+<!--        <item name="drawable_health_profile_edit">@drawable/ic_hpb_update_profile_illustration-->
+<!--        </item>-->
+<!--        <item name="drawable_health_profile_builder_complete">@drawable/ic_hpb_complete</item>-->
+<!--        <item name="drawable_prompt_app_review">@drawable/ic_fist_bump</item>-->
+        <item name="drawable_health_need_error">@drawable/ic_start_program_league</item>
+        <item name="drawable_health_journey_empty_activities">@drawable/il_health_journey_empty
+        </item>
+        <item name="drawable_health_programs_not_enrolled">
+            @drawable/il_league_programs_progress_empty
+        </item>
+        <item name="drawable_health_programs_enrollment_limit">@drawable/il_league_program_limit
+        </item>
+        <item name="drawable_health_programs_enrollment_available">
+            @drawable/il_league_add_programs
+        </item>
+        <item name="drawable_health_journey_preview">@drawable/il_league_view_future_activities
+        </item>
+        <item name="drawable_health_journey_item_removed">@drawable/il_trash_can</item>
+        <item name="drawable_health_journey_item_complete">@drawable/il_high_five</item>
+
+
     </style>
+
+
 
     <style name="AlertBanner" parent="@style/AppTheme">
         <item name="android:foreground">?selectableItemBackground</item>

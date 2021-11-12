@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="rewards_view_achievements">Voir les réalisations</string>
+    <string name="rewards_earned_grand_total_of">Vous avez accumulé un total de</string>
+    <string name="rewards_close_achievement_celebration">Fermer l\'achèvement</string>
+    <string name="rewards_badge_image">Image du badge</string>
+    <string name="rewards_content_description_swoop">Swoop</string>
+    <string name="rewards_content_description_badge_image">image marquante</string>
+    <string name="rewards_close">Fermer</string>
+    <string name="rewards_new">NOUVEAU</string>
+    <string name="rewards_earned">Acquis\"</string>
+    <string name="rewards_back_to_journey">Revenir au parcours</string>
+    <plurals name="rewards_points_earned_greeting">
+        <item quantity="one">Vous avez acquis +%1$d point</item>
+        <item quantity="other">Vous avez acquis +%1$d points</item>
+    </plurals>
+    <string name="rewards_achievements">Réalisations</string>
+    <string name="rewards_view_all">Voir tout</string>
+    <string name="rewards_activity_complete">Activité terminée</string>
+    <string name="rewards_well_done">Bien joué!</string>
+    <string name="rewards_nothing_to_see_here">Rien à voir ici pour l\'instant</string>
+    <string name="rewards_complete_activities_to_unlock">Terminez les activités de votre parcours pour commencer à débloquer des Réalisations.</string>
+    <plurals name="rewards_completed_times">
+        <item quantity="one">Terminé %1$s fois</item>
+        <item quantity="other">Terminé %1$s fois</item>
+    </plurals>
+    <string name="rewards_you_completed">Vous avez terminé</string>
+</resources>

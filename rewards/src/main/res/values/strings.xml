@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rewards_view_achievements">View Achievements</string>
+    <string name="rewards_earned_grand_total_of">You’ve earned a grand total of</string>
+    <string name="rewards_close_achievement_celebration">Close Achievement Celebration</string>
+    <string name="rewards_badge_image">Badge Image</string>
+    <string name="rewards_content_description_swoop">Swoop</string>
+    <string name="rewards_content_description_badge_image">milestone image</string>
+    <string name="rewards_close">Close</string>
+    <string name="rewards_new">NEW</string>
+    <string name="rewards_earned">Earned"</string>
+    <string name="rewards_back_to_journey">Back to Journey</string>
+    <string name="rewards_achievements">Achievements</string>
+    <string name="rewards_view_all">View all</string>
+    <string name="rewards_activity_complete">Activity Complete</string>
+    <string name="rewards_well_done">Well done!</string>
+    <string name="rewards_nothing_to_see_here">Nothing to see here just yet</string>
+    <string name="rewards_complete_activities_to_unlock">Complete activities in your Journey to start unlocking achievements.</string>
+    <string name="rewards_you_completed">You completed</string>
+
+    <plurals name="rewards_completed_times">
+        <item quantity="one">Completed %1$s time</item>
+        <item quantity="other">Completed %1$s times</item>
+    </plurals>
+
+    <plurals name="rewards_points_earned_greeting">
+        <item quantity="one">You earned +%1$d point</item>
+        <item quantity="other">You earned +%1$d points</item>
+    </plurals>
+</resources>

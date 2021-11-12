@@ -1,0 +1,89 @@
+android {
+    // Global lint rules, put module specific lint rules in the module's lint.xml files
+    lintOptions {
+        lintConfig file("lint.xml")
+        htmlReport true
+        checkReleaseBuilds true
+        // NEVER set abortOnError false, fix your lint issues instead please
+        abortOnError true
+        ignoreWarnings false
+        checkDependencies true
+        ignoreTestSources true
+        warningsAsErrors true
+        disable 'LockedOrientationActivity',
+                'InvalidPackage', 'DuplicatePlatformClasses', 'LintBaseline',
+                'MissingTranslation', 'GoogleAppIndexingWarning',
+                'ObsoleteLintCustomCheck', 'VectorPath', 'VectorRaster',
+                'ContentDescription', 'StringFormatCount', 'GradleDependency',
+                'TypographyEllipsis',
+                "LabelFor", // causing an exception in the linter
+                "UnusedResources", "UnusedIds", "Overdraw", "NullSafeMutableLiveData"
+        // causing an exception in the linter
+        enable 'LambdaLast', 'Registered', 'WeekBasedYear', 'ConvertToWebp'
+
+        // this was causing a lint error so it's removed for now:
+        // 'IidCompatibilityCheckFailure'
+        //
+        // would be nice to enable:
+        // 'SelectableText' (too many to fix)
+        // 'NegativeMargin'
+        // 'NewerVersionAvailable' (these cause a lot of warnings)
+        // 'GradleDependency'
+    }
+
+    viewBinding {
+        enabled = true
+    }
+    buildFeatures {
+        compose true
+    }
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            testCoverageEnabled = false
+        }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    flavorDimensions "default"
+
+
+    // needed to get robolectric working
+    configurations.all {
+        resolutionStrategy.force("org.ow2.asm:asm:9.2")
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        useIR = true
+    }
+
+    testOptions {
+        unitTests.all {
+            systemProperty 'robolectric.enabledSdks', '23'
+        }
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion composeVersion
+    }
+}
+

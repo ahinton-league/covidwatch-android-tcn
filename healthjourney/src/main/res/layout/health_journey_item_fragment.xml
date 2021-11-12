@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".journey.HealthJourneyItemFragment">
+
+    <life.league.genesis.widget.GenesisToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?color_background_page_swoop_primary"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:modal="true" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomBarrier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <life.league.genesis.widget.header.PageHeader
+                android:id="@+id/page_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <life.league.healthjourney.interop.GoalProgressView
+                android:id="@+id/goalProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone" />
+
+            <com.airbnb.epoxy.EpoxyRecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="?spacing_one"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:paddingBottom="?spacing_three"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/widget_basic_icon_banner" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <life.league.genesis.widget.button.Button
+        android:id="@+id/completeActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacing_one"
+        android:layout_marginEnd="?spacing_one"
+        android:layout_marginBottom="?spacing_one"
+        android:minHeight="56dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/removeActivity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:text="@string/mark_as_done" />
+
+    <life.league.genesis.widget.button.Button
+        android:id="@+id/removeActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?spacing_one"
+        android:layout_marginEnd="?spacing_one"
+        android:layout_marginBottom="?spacing_one_and_half"
+        android:visibility="gone"
+        app:button_style="minimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:text="@string/remove_activity" />
+
+    <life.league.genesis.widget.footer.StickyRoundedFooter
+        android:id="@+id/disabledFooter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?color_background_secondary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title_text="This activity isn’t available yet!"
+        tools:description_text="Come back in X days to complete it." />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/bottomBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="disabledFooter,completeActivity"
+        tools:layout_editor_absoluteY="656dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

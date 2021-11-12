@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lint>
+    <!-- health journey lint rules -->
+    <!--    <issue id="IconDensities" severity="ignore" />-->
+    <!--    <issue id="IconMissingDensityFolder" severity="ignore" />-->
+
+</lint>

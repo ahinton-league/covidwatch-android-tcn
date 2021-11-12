@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/health_journey_nav_graph"
+    app:startDestination="@id/healthJourneyFragment">
+
+    <dialog
+        android:id="@+id/healthJourneyRemovalConfirmationBottomSheetDialog"
+        android:name="life.league.healthjourney.journey.HealthJourneyRemovalConfirmationBottomSheetDialog"
+        android:label="HealthJourneyRemovalConfirmationBottomSheetDialog"
+        tools:layout="@layout/fragment_health_journey_removal_confirmation">
+        <argument
+            android:name="healthJourneyItem"
+            android:defaultValue="@null"
+            app:argType="life.league.healthjourney.journey.models.HealthJourneyItem"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_healthJourneyRemovalConfirmationBottomSheetDialog_to_healthJourneyRemovalSuccessBottomSheetDialog"
+            app:destination="@id/healthJourneyRemovalSuccessBottomSheetDialog"
+            app:popUpTo="@id/healthJourneyRemovalConfirmationBottomSheetDialog"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="healthProgram"
+            app:argType="life.league.healthjourney.programs.models.HealthProgramDetails"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+    <fragment
+        android:id="@+id/healthJourneyActivityFragment"
+        android:name="life.league.healthjourney.journey.HealthJourneyItemFragment"
+        android:label="health_journey_activity_fragment"
+        tools:layout="@layout/health_journey_item_fragment">
+        <action
+            android:id="@+id/action_healthJourneyActivityFragment_to_removeHealthJourneyItemConfirmationBottomSheetDialog"
+            app:destination="@id/healthJourneyRemovalConfirmationBottomSheetDialog" />
+        <action
+            android:id="@+id/action_healthJourneyActivityFragment_to_healthJourneyItemCompleteBottomSheetDialog"
+            app:destination="@id/healthJourneyItemCompleteBottomSheetDialog" />
+        <argument
+            android:name="healthJourneyItemId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <deepLink
+            android:id="@+id/deepLink7"
+            app:uri=".*/member/health-journey/activity/{healthJourneyItemId}" />
+        <action
+            android:id="@+id/action_healthJourneyActivityFragment_to_multiStepHealthJourneyItemCompletionFragment"
+            app:destination="@id/multiStepHealthJourneyItemCompletionFragment" />
+        <action
+            android:id="@+id/action_healthJourneyActivityFragment_to_healthJourneyItemCompletionTypeUnsupportedBottomSheetDialog"
+            app:destination="@id/healthJourneyItemCompletionTypeUnsupportedBottomSheetDialog" />
+        <argument
+            android:name="campaignId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="activityId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri=".*/member/health-journey/campaign/{campaignId}/activity/{activityId}" />
+    </fragment>
+    <dialog
+        android:id="@+id/healthJourneyItemCompleteBottomSheetDialog"
+        android:name="life.league.healthjourney.journey.HealthJourneyItemCompleteBottomSheetDialog"
+        android:label="HealthJourneyItemCompleteBottomSheetDialog">
+        <action
+            android:id="@+id/action_healthJourneyItemCompleteBottomSheetDialog_pop"
+            app:popUpTo="@id/healthJourneyActivityFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="healthJourneyItemComplete"
+            app:argType="life.league.healthjourney.journey.models.HealthJourneyItemCompletionScreen" />
+        <argument
+            android:name="healthJourneyItem"
+            app:argType="life.league.healthjourney.journey.models.HealthJourneyItem"
+            app:nullable="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/healthJourneyRemovalSuccessBottomSheetDialog"
+        android:name="life.league.healthjourney.journey.HealthJourneyRemovalSuccessBottomSheetDialog"
+        android:label="HealthJourneyRemovalSuccessBottomSheetDialog">
+        <action
+            android:id="@+id/action_healthJourneyItemRemovedBottomSheetDialog_popToHealthJourneyActivityFragment"
+            app:popUpTo="@id/healthJourneyActivityFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_healthJourneyItemRemovedBottomSheetDialog_popToHealthProgramDetailsFragmentV2"
+            app:popUpTo="@id/healthProgramDetailsFragmentV2"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="healthJourneyItem"
+            android:defaultValue="@null"
+            app:argType="life.league.healthjourney.journey.models.HealthJourneyItem"
+            app:nullable="true" />
+        <argument
+            android:name="healthProgram"
+            app:argType="life.league.healthjourney.programs.models.HealthProgramDetails"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
+    <fragment
+        android:id="@+id/firstGoalTomorrowFragment"
+        android:name="life.league.healthjourney.programs.details.FullScreenContentFragment"
+        android:label="FirstGoalTomorrowFragment">
+        <argument
+            android:name="content"
+            app:argType="life.league.healthjourney.programs.models.FullScreenContent" />
+        <action
+            android:id="@+id/action_firstGoalTomorrowFragment_to_healthJourneyFragment"
+            app:destination="@id/healthJourneyFragment"
+            app:popUpTo="@id/healthJourneyFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/healthJourneyFragment"
+        android:name="life.league.healthjourney.journey.HealthJourneyFragment"
+        android:label="health_journey_fragment"
+        tools:layout="@layout/health_journey_fragment">
+        <action
+            android:id="@+id/action_healthJourneyFragment_to_healthJourneyActivityFragment"
+            app:destination="@id/healthJourneyActivityFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+        <deepLink
+            android:id="@+id/deepLink5"
+            app:uri=".*/member/health-journey?tab={tabIndex}" />
+        <argument
+            android:name="tabIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_healthJourneyFragment_to_healthJourneyPreviewFragment"
+            app:destination="@id/healthJourneyPreviewFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down"/>
+        <action
+            android:id="@+id/action_healthJourneyFragment_to_healthProgramDetailsFragmentV2"
+            app:destination="@id/healthProgramDetailsFragmentV2" />
+        <action
+            android:id="@+id/action_healthJourneyFragment_to_healthProgramLibraryFragment"
+            app:destination="@id/healthProgramLibraryFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_healthJourneyFragment_to_healthProgramsLimitMessageDialog"
+            app:destination="@id/healthProgramsLimitMessageDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/healthJourneyPreviewFragment"
+        android:name="life.league.healthjourney.programs.preview.HealthJourneyPreviewFragment"
+        android:label="health_journey_preview_fragment"
+        tools:layout="@layout/health_journey_preview_fragment" />
+    <fragment
+        android:id="@+id/healthProgramDetailsFragmentV2"
+        android:name="life.league.healthjourney.programs.details.HealthProgramDetailsFragment"
+        android:label="HealthProgramDetailsFragmentV2">
+        <argument
+            android:name="programId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_healthProgramDetailsFragmentV2_to_healthJourneyRemovalConfirmationBottomSheetDialog"
+            app:destination="@id/healthJourneyRemovalConfirmationBottomSheetDialog" />
+        <action
+            android:id="@+id/action_healthProgramDetailsFragmentV2_to_firstGoalTomorrowFragment"
+            app:destination="@id/firstGoalTomorrowFragment" />
+        <deepLink
+            android:id="@+id/deepLink9"
+            app:uri=".*/member/health-programs/{programId}" />
+    </fragment>
+    <fragment
+        android:id="@+id/healthProgramLibraryFragment"
+        android:name="life.league.healthjourney.programs.library.HealthProgramLibraryFragment"
+        android:label="HealthProgramLibraryFragment">
+        <action
+            android:id="@+id/action_healthProgramLibraryFragment_to_healthProgramCategoryFragment"
+            app:destination="@id/healthProgramCategoryFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_healthProgramLibraryFragment_to_healthProgramDetailsFragmentV2"
+            app:destination="@id/healthProgramDetailsFragmentV2" />
+        <action
+            android:id="@+id/action_healthProgramLibraryFragment_to_healthProgramsLimitMessageDialog"
+            app:destination="@id/healthProgramsLimitMessageDialog" />
+        <deepLink
+            android:id="@+id/deepLink10"
+            app:uri=".*/member/health-programs" />
+    </fragment>
+    <dialog
+        android:id="@+id/healthProgramsLimitMessageDialog"
+        android:name="life.league.healthjourney.programs.progress.HealthProgramsLimitMessageDialog"
+        android:label="fragment_health_programs_limit_messsage_dialog"
+        tools:layout="@layout/fragment_health_programs_limit_messsage_dialog" >
+        <argument
+            android:name="programEnrollmentLimitModal"
+            app:argType="life.league.healthjourney.programs.models.ProgramEnrollmentLimitModal" />
+    </dialog>
+    <fragment
+        android:id="@+id/healthProgramCategoryFragment"
+        android:name="life.league.healthjourney.programs.library.HealthProgramCategoryFragment"
+        android:label="health_program_category_fragment"
+        tools:layout="@layout/health_program_category_fragment">
+        <argument
+            android:name="categoryId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_healthProgramCategoryFragment_to_healthProgramDetailsFragmentV2"
+            app:destination="@id/healthProgramDetailsFragmentV2" />
+        <argument
+            android:name="healthProgramsCarousel"
+            android:defaultValue="@null"
+            app:argType="life.league.healthjourney.programs.models.HealthProgramsCarousel"
+            app:nullable="true" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri=".*/member/health-programs/category/{categoryId}" />
+    </fragment>
+    <fragment
+        android:id="@+id/multiStepHealthJourneyItemCompletionFragment"
+        android:name="life.league.healthjourney.journey.activitycompletion.MultiStepHealthJourneyItemCompletionFragment"
+        android:label="MultiStepHealthJourneyItemCompletionFragment" >
+        <argument
+            android:name="steps"
+            app:argType="life.league.healthjourney.journey.models.CompletionMethod$MultiStep" />
+        <action
+            android:id="@+id/action_multiStepHealthJourneyItemCompletionFragment_to_leaveHealthJourneyActivityConfirmationFragment"
+            app:destination="@id/leaveHealthJourneyActivityConfirmationFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_down" />
+        <argument
+            android:name="doneText"
+            app:argType="string" />
+        <argument
+            android:name="activityName"
+            app:argType="string" />
+        <argument
+            android:name="activityId"
+            app:argType="string" />
+        <argument
+            android:name="activityType"
+            app:argType="string" />
+        <argument
+            android:name="complete"
+            app:argType="boolean" />
+    </fragment>
+    <dialog
+        android:id="@+id/healthJourneyItemCompletionTypeUnsupportedBottomSheetDialog"
+        android:name="life.league.healthjourney.journey.HealthJourneyItemCompletionTypeUnsupportedBottomSheetDialog"
+        android:label="HealthJourneyItemCompletionTypeUnsupportedBottomSheetDialog" >
+        <argument
+            android:name="activityName"
+            app:argType="string" />
+        <argument
+            android:name="activityId"
+            app:argType="string" />
+        <argument
+            android:name="activityType"
+            app:argType="string" />
+    </dialog>
+    <fragment
+        android:id="@+id/leaveHealthJourneyActivityConfirmationFragment"
+        android:name="life.league.healthjourney.journey.activitycompletion.LeaveHealthJourneyActivityConfirmationFragment"
+        android:label="LeaveHealthJourneyActivityConfirmationFragment" >
+        <argument
+            android:name="activityName"
+            app:argType="string" />
+        <argument
+            android:name="activityId"
+            app:argType="string" />
+        <argument
+            android:name="activityType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_leaveHealthJourneyActivityConfirmationFragment_pop"
+            app:popUpTo="@id/multiStepHealthJourneyItemCompletionFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="totalSteps"
+            app:argType="integer" />
+        <argument
+            android:name="currentStep"
+            app:argType="integer" />
+    </fragment>
+</navigation>

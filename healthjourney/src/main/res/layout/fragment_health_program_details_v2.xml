@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <life.league.genesis.widget.GenesisToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="?color_background_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="0dp"
+        app:modal="true"
+        app:support_action_bar="false" />
+
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/layout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:paddingBottom="?spacing_six"
+        app:layout_constraintBottom_toTopOf="@+id/action"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <life.league.genesis.widget.button.Button
+        android:id="@+id/action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="?spacing_one"
+        android:layout_marginBottom="?spacing_two_and_half"
+        android:layout_marginTop="?spacing_three_quarters"
+        android:clickable="true"
+        android:focusable="true"
+        android:minHeight="56dp"
+        android:visibility="gone"
+        app:button_style="primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        app:text="@string/add_to_journey"
+        tools:visibility="visible" />
+
+    <life.league.genesis.widget.footer.StickyRoundedFooter
+        android:id="@+id/disabledFooter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?color_background_secondary"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title_text="@string/program_limit_message_title"
+        app:description_text="@string/program_limit_message_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

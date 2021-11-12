@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="?spacing_one_and_half"
+    android:paddingTop="?spacing_one_and_half"
+    android:paddingBottom="?spacing_two"
+    tools:context=".programs.progress.HealthProgramsLimitMessageDialog">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="?typography_h4"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Our Program Limit" />
+
+    <TextView
+        android:id="@+id/message"
+        style="?typography_body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?spacing_one_and_half"
+        android:layout_marginBottom="?spacing_three"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:text="Studies show that there's a limit to the amount of multitasking we can do before it starts affecting our ability to focus, learn, and retain information. We capped our limit at four so you can get the most out of every program you start. " />
+
+    <life.league.genesis.widget.button.Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:text="@string/close" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rewards_nav_graph"
+    app:startDestination="@id/viewAllAchievements">
+
+    <fragment
+        android:id="@+id/viewAllAchievements"
+        android:name="life.league.rewards.viewallachievements.ViewAllAchievementsFragment"
+        android:label="@string/rewards_achievements">
+        <deepLink
+            android:id="@+id/view_all_achievements_deeplink"
+            app:uri=".*/member/achievements" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,96 @@
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply from: '../all-modules.gradle'
+
+
+kapt {
+    correctErrorTypes = true
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        freeCompilerArgs += "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "com.github.EverlongProject.league-core-android:league-core:$leagueCoreNetworkingAuthVersion"
+    implementation project(path: ':rewards')
+    testImplementation "com.github.EverlongProject.league-core-android:league-core-test:$leagueCoreNetworkingAuthVersion"
+    implementation "com.github.EverlongProject:genesis-android:$genesisVersion"
+
+    // Compose
+    implementation "androidx.compose.runtime:runtime:$composeVersion"
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.foundation:foundation:$composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$composeVersion"
+    implementation "androidx.compose.material:material:$composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling:$composeVersion"
+    implementation "com.google.android.material:compose-theme-adapter:$composeVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutComposeVersion"
+    implementation "androidx.activity:activity-compose:$activityComposeVersion"
+    implementation "com.google.accompanist:accompanist-pager:$accompanistPagerVersion"
+
+
+    //Androidx
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+
+
+    // Material
+    implementation "com.google.android.material:material:$materialVersion"
+
+    // Joda time
+    implementation "net.danlew:android.joda:$jodaVersion"
+
+
+    // Epoxy
+    kapt "com.airbnb.android:epoxy-processor:$epoxyProcessorVersion"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-adapters:$moshiVersion"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshiVersion"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshiVersion"
+
+    // Room
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    // Koin
+    implementation "io.insert-koin:koin-core:$koinVersion"
+    implementation "io.insert-koin:koin-android:$koinVersion"
+    testImplementation "io.insert-koin:koin-test:$koinVersion"
+
+    // Mockito (deprecated, use mockk instead)
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+
+    // AndroidX
+    testImplementation "androidx.test:core:$coreTestVersion"
+
+    // JUnit
+    testImplementation "junit:junit:$junitVersion"
+
+    // Robolectric
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    testImplementation "org.robolectric:shadows-multidex:$robolectricVersion"
+
+    // MockK kotlin mocking framework
+    testImplementation "io.mockk:mockk:$mockkVersion"
+    testImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+
+    // Test with coroutines
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutineTestVersion"
+    testImplementation "app.cash.turbine:turbine:$turbineVersion"
+
+}
