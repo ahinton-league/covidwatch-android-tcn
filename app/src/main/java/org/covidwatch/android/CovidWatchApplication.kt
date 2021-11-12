@@ -25,6 +25,7 @@ import life.league.core.repository.Repository
 import life.league.core.repository.UserRepository
 import life.league.core.util.Log
 import life.league.core.util.SessionUtils
+import life.league.genesis.configuration.Genesis
 import life.league.healthjourney.injection.HealthJourneyModule
 import life.league.healthjourney.journey.HealthJourney
 import life.league.healthjourney.journey.HealthJourneyDrawables
@@ -54,6 +55,8 @@ class CovidWatchApplication : Application() {
             androidContext(applicationContext)
             modules(appModule, *(HealthJourneyModule.modules))
         }
+
+        Genesis.initialize(imageViewLoader = get())
 
         HealthJourney.initialize(
             api = get(),
