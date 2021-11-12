@@ -30,79 +30,79 @@ class SignedReportsDownloadWorker(var context: Context, workerParams: WorkerPara
 
     override fun doWork(): Result {
 
-        Log.i(TAG, "Downloading signed reports...")
+//        Log.i(TAG, "Downloading signed reports...")
+//
+//        val now = Date()
+//
+//        val lastFetchTime = FirestoreConstants.lastFetchTime()
+//        var fetchSinceTime = context.getSharedPreferences(
+//            context.getString(R.string.preference_file_key),
+//            Context.MODE_PRIVATE
+//        ).getLong(
+//            context.getString(R.string.preference_last_temporary_contact_numbers_download_date),
+//            lastFetchTime.time
+//        )
+//        if (fetchSinceTime < lastFetchTime.time) {
+//            fetchSinceTime = lastFetchTime.time
+//        }
+//
+//        val instance = FirebaseFirestore.getInstance()
+//
+//        val task =
+//            FirebaseFirestore.getInstance().collection(FirestoreConstants.COLLECTION_SIGNED_REPORTS)
+//                .whereGreaterThan(
+//                    FirestoreConstants.FIELD_TIMESTAMP,
+//                    Timestamp(Date(fetchSinceTime))
+//                )
+//                .get()
+//                .continueWith(
+//                    CovidWatchDatabase.databaseWriteExecutor,
+//                    Continuation<QuerySnapshot, Result> { task ->
+//                        //result = Result.success()
+//                        val queryDocumentSnapshots = task.result
+//                        if (queryDocumentSnapshots != null) {
+//                            Log.i(
+//                                TAG,
+//                                "Downloaded ${queryDocumentSnapshots.size()} signed report(s)"
+//                            )
+//                            result = try {
+//                                queryDocumentSnapshots.documentChanges.filter {
+//                                    it.type == DocumentChange.Type.ADDED
+//                                }
+//                                markLocalTemporaryContactNumbers(
+//                                    queryDocumentSnapshots.documentChanges,
+//                                    true
+//                                )
+//
+//                                with(
+//                                    context.getSharedPreferences(
+//                                        context.getString(R.string.preference_file_key),
+//                                        Context.MODE_PRIVATE
+//                                    ).edit()
+//                                ) {
+//                                    putLong(
+//                                        context.getString(R.string.preference_last_temporary_contact_numbers_download_date),
+//                                        now.time
+//                                    )
+//                                    commit()
+//                                }
+//
+//                                Result.success()
+//
+//                            } catch (exception: Exception) {
+//                                Result.failure()
+//                            }
+//                        } else {
+//                            result = Result.failure()
+//                        }
+//                        null
+//                    })
+//
+//        Tasks.await(task)
+//
+//        Log.i(TAG, "Finish task")
 
-        val now = Date()
-
-        val lastFetchTime = FirestoreConstants.lastFetchTime()
-        var fetchSinceTime = context.getSharedPreferences(
-            context.getString(R.string.preference_file_key),
-            Context.MODE_PRIVATE
-        ).getLong(
-            context.getString(R.string.preference_last_temporary_contact_numbers_download_date),
-            lastFetchTime.time
-        )
-        if (fetchSinceTime < lastFetchTime.time) {
-            fetchSinceTime = lastFetchTime.time
-        }
-
-        val instance = FirebaseFirestore.getInstance()
-
-        val task =
-            FirebaseFirestore.getInstance().collection(FirestoreConstants.COLLECTION_SIGNED_REPORTS)
-                .whereGreaterThan(
-                    FirestoreConstants.FIELD_TIMESTAMP,
-                    Timestamp(Date(fetchSinceTime))
-                )
-                .get()
-                .continueWith(
-                    CovidWatchDatabase.databaseWriteExecutor,
-                    Continuation<QuerySnapshot, Result> { task ->
-                        //result = Result.success()
-                        val queryDocumentSnapshots = task.result
-                        if (queryDocumentSnapshots != null) {
-                            Log.i(
-                                TAG,
-                                "Downloaded ${queryDocumentSnapshots.size()} signed report(s)"
-                            )
-                            result = try {
-                                queryDocumentSnapshots.documentChanges.filter {
-                                    it.type == DocumentChange.Type.ADDED
-                                }
-                                markLocalTemporaryContactNumbers(
-                                    queryDocumentSnapshots.documentChanges,
-                                    true
-                                )
-
-                                with(
-                                    context.getSharedPreferences(
-                                        context.getString(R.string.preference_file_key),
-                                        Context.MODE_PRIVATE
-                                    ).edit()
-                                ) {
-                                    putLong(
-                                        context.getString(R.string.preference_last_temporary_contact_numbers_download_date),
-                                        now.time
-                                    )
-                                    commit()
-                                }
-
-                                Result.success()
-
-                            } catch (exception: Exception) {
-                                Result.failure()
-                            }
-                        } else {
-                            result = Result.failure()
-                        }
-                        null
-                    })
-
-        Tasks.await(task)
-
-        Log.i(TAG, "Finish task")
-
-        return result
+        return Result.success()
     }
 
     private fun markLocalTemporaryContactNumbers(

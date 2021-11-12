@@ -23,6 +23,7 @@ import life.league.core.util.featureflags.remotefeatureflags.FirebaseRemoteFeatu
 import life.league.genesis.imageloader.GenesisImageViewLoader
 import life.league.healthjourney.journey.api.ApplyHealthJourneyAdapters
 import life.league.networking.content.ContentAPI
+import life.league.networking.content.ContentAPIAuthenticator
 import life.league.networking.content.ContentAPIEnvironmentProvider
 import life.league.networking.json.JsonAdapter
 import life.league.networking.rest.LeagueRestAPIAuthenticator
@@ -54,6 +55,9 @@ import java.util.*
 @Suppress("USELESS_CAST")
 val appModule = module {
 
+    single<ContentAPIAuthenticator> {
+        get<Auth0Authenticator>()
+    }
     single<AnalyticsTracker> {
         CovidWatchAnalyticsTracker
     }
@@ -80,6 +84,7 @@ val appModule = module {
             traceRequestsUsingFirebase = true
         )
     }
+
 
     single {
         val loginIntent = Intent(androidContext(), MainActivity::class.java)
@@ -140,10 +145,6 @@ val appModule = module {
     }
 
     single<LeagueSocketAPIEnvironmentProvider> {
-        get<EnvironmentUtils>()
-    }
-
-    single<ContentAPIEnvironmentProvider> {
         get<EnvironmentUtils>()
     }
 
@@ -216,6 +217,8 @@ val appModule = module {
         )
     }
 
+
+
     factory {
         UserFlowRepositoryImpl(
             preferences = get()
@@ -246,6 +249,10 @@ val appModule = module {
             sessionUtils = get(),
             context = androidContext()
         )
+    }
+
+    single<ContentAPIEnvironmentProvider> {
+        get<EnvironmentUtils>()
     }
 
     viewModel {
