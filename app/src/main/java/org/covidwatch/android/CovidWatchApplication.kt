@@ -17,10 +17,13 @@ import life.league.core.cache.dao.UserFlagsDao
 import life.league.core.cache.table.UserConfigTable
 import life.league.core.cache.table.UserFlagsTable
 import life.league.core.cache.table.UserTable
+import life.league.core.configuration.Core
+import life.league.core.configuration.CoreSettings
 import life.league.core.model.user.User
 import life.league.core.model.user.UserConfig
 import life.league.core.model.user.UserFlags
 import life.league.core.model.user.UserProfile
+import life.league.core.navigation.NullCoreNavigation
 import life.league.core.repository.Repository
 import life.league.core.repository.UserRepository
 import life.league.core.util.Log
@@ -35,6 +38,8 @@ import life.league.networking.socket.API
 import org.covidwatch.android.data.signedreport.SignedReportsDownloader
 import org.covidwatch.android.data.signedreport.firestore.SignedReportsUploader
 import org.covidwatch.android.di.appModule
+import org.covidwatch.android.presentation.CovidWatchDeeplinkHandler
+import org.covidwatch.android.presentation.controls.TestResultsBannerProvider
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -58,6 +63,19 @@ class CovidWatchApplication : Application() {
 
         Genesis.initialize(imageViewLoader = get())
 
+//        Core.initialize(applicationContext = this,
+//            api = get(),
+//            sessionUtils = get(),
+//            analytics = get(),
+//            featureFlagsUtils = get(),
+//            privacyLockUtils = get(),
+//            coreNavigation = NullCoreNavigation(),
+//            leagueSocketApiAuthenticator = get(),
+//            environmentUtils = get(),
+//            settings = CoreSettings(appHost = "covidwatch.com")
+//        )
+
+        Log.enableDebugLogs(true)
         HealthJourney.initialize(
             api = get(),
             userRepository = get(),
@@ -75,8 +93,14 @@ class CovidWatchApplication : Application() {
             strings = HealthJourneyStrings(
                 pointsSystemError = R.string.health_journey_points_system_error
             ),
-            achievementsEnabled = true
+            achievementsEnabled = true,
+            healthProgramsHeaderProvider = {
+                TestResultsBannerProvider()
+            },
+            applicationDeeplinkHandler = CovidWatchDeeplinkHandler
         )
+
+
 
         TcnClient.init(tcnManager)
         signedReportsUploader.startUploading()
@@ -268,21 +292,21 @@ class UserRepositoryImpl(
         api.getUserProfile(requestCallback { result ->
             when (result) {
                 is Success -> {
-                    if (userId != null && result.response.user.userId != userId) {
-                        Log.d(
-                            TAG,
-                            "Received user profile from different user, not storing in cache"
-                        )
-                        analyticsTracker.trackDebugEvent("Received user profile from different user, not storing in cache")
-                        callback?.onFailure("Received user profile from different user")
-                    } else {
+//                    if (userId != null && result.response.user.userId != userId) {
+//                        Log.d(
+//                            TAG,
+//                            "Received user profile from different user, not storing in cache"
+//                        )
+//                        analyticsTracker.trackDebugEvent("Received user profile from different user, not storing in cache")
+//                        callback?.onFailure("Received user profile from different user")
+//                    } else {
                         sessionUtils.lastUserName =
                             result.response.user.preferredFirstName()
                         cache.insertOrUpdate(UserTable(result.response.user))
 //                        EventBus.getDefault().post(result.response.user)
                         analyticsTracker.trackUserProfile(result.response.user)
                         callback?.onSuccess(result.response)
-                    }
+                    //}
                 }
                 is Failure -> {
                     callback?.onFailure(result.errorResponse)

@@ -94,6 +94,10 @@ dependencies {
     // I think we need this to prevent a random unmarshalling error with login
     implementation 'com.auth0.android:auth0:2.5.0'
 
+    // Epoxy - needed to inject a custom control into Health Journey
+    api "com.airbnb.android:epoxy:$epoxyVersion"
+    kapt "com.airbnb.android:epoxy-processor:$epoxyProcessorVersion"
+
     implementation "com.github.EverlongProject:genesis-android:$genesisVersion"
     implementation "com.github.EverlongProject.league-core-android:league-core:$leagueCoreNetworkingAuthVersion"
     implementation 'com.auth0.android:auth0:2.5.0'

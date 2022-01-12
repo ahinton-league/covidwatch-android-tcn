@@ -8,7 +8,9 @@ import life.league.core.repository.UserRepository
 import life.league.core.util.featureflags.FeatureFlagsUtils
 import life.league.healthjourney.featureflags.HealthJourneyFeatureFlags
 import life.league.healthjourney.injection.HealthJourneyModule
-import life.league.healthjourney.injection.HealthJourneyViewModelModule
+import life.league.healthjourney.settings.ApplicationDeeplinkHandler
+import life.league.healthjourney.settings.EpoxyModelsProvider
+import life.league.healthjourney.settings.NullApplicationDeeplinkHandler
 import life.league.networking.socket.API
 import org.koin.core.Koin
 import org.koin.core.KoinApplication
@@ -31,7 +33,9 @@ object HealthJourney {
         userRepository: UserRepository,
         analytics: AnalyticsTracker,
         api: API,
-        achievementsEnabled: Boolean = false
+        achievementsEnabled: Boolean = false,
+        healthProgramsHeaderProvider : (() -> EpoxyModelsProvider)? = null,
+        applicationDeeplinkHandler: ApplicationDeeplinkHandler = NullApplicationDeeplinkHandler()
     ) {
         featureFlagsUtils.addFeatureFlagContainers(HealthJourneyFeatureFlags)
         nullableConfiguration =
@@ -39,6 +43,7 @@ object HealthJourney {
                 achievementsEnabled = achievementsEnabled,
                 drawables = drawables,
                 strings = strings,
+                healthProgramsHeaderProvider = healthProgramsHeaderProvider,
                 koinApplication = koinApplication {
                     modules(
                         module {
@@ -51,6 +56,9 @@ object HealthJourney {
                             single {
                                 userRepository
                             }
+                            single {
+                                applicationDeeplinkHandler
+                            }
                         },
                         *(HealthJourneyModule.modules)
                     )
@@ -62,7 +70,8 @@ internal class HealthJourneyConfiguration(
     val koinApplication: KoinApplication,
     val drawables: HealthJourneyDrawables,
     val strings: HealthJourneyStrings,
-    val achievementsEnabled: Boolean
+    val achievementsEnabled: Boolean,
+    val healthProgramsHeaderProvider : (() -> EpoxyModelsProvider)?,
 )
 
 

@@ -55,6 +55,9 @@
         <action
             android:id="@+id/action_testQuestionsFragment_to_testConfirmationFragment"
             app:destination="@id/testConfirmationFragment" />
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="https://covidwatch.com/testresults" />
     </fragment>
     <fragment
         android:id="@+id/testConfirmationFragment"

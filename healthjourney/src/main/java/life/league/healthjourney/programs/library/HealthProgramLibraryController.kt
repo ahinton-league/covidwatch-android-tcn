@@ -20,6 +20,7 @@ import life.league.healthjourney.R
 import life.league.healthjourney.analytics.*
 import life.league.healthjourney.programs.HealthProgramCardViewModel_
 import life.league.healthjourney.programs.models.*
+import life.league.healthjourney.settings.EpoxyModelsProvider
 
 class HealthProgramLibraryController(
     private val analyticsTracker: AnalyticsTracker,

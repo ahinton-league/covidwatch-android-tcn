@@ -3,16 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../.gradle/caches/transforms-3/947f5b94a407873b1fea3bbafb935e2a/transformed/jetified-genesis-android-4.3.2/res/drawable/background_card_transparent.xml" value="0.27076923076923076" />
         <entry key="app/src/main/res/drawable-mdpi/il_health_journey_empty.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_high_five.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_league_add_programs.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_league_program_limit.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_league_programs_progress_empty.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_trash_can.xml" value="0.4338461538461538" />
+        <entry key="app/src/main/res/drawable/bg_splash_fragment.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/bg_test_confirmation.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/bkgd_card.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/bkgd_card_darker.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/rounded_corner_primary.xml" value="0.27076923076923076" />
+        <entry key="app/src/main/res/drawable/rounded_corner_secondary.xml" value="0.27076923076923076" />
+        <entry key="app/src/main/res/drawable/splash_bkgd.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.32563405797101447" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/layout/fragment_launch.xml" value="0.34646739130434784" />
         <entry key="app/src/main/res/layout/layout_toolbar.xml" value="0.37182971014492755" />
+        <entry key="app/src/main/res/layout/widget_normal_banner.xml" value="0.335" />
         <entry key="healthjourney/src/main/res/layout/health_journey_fragment.xml" value="0.25" />
       </map>
     </option>

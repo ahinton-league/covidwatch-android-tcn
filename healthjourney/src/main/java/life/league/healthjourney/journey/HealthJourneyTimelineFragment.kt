@@ -1,5 +1,6 @@
 package life.league.healthjourney.journey
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,8 @@ import life.league.healthjourney.databinding.FragmentHealthJourneyTimelineBindin
 import life.league.healthjourney.journey.models.HealthActivitiesCategory
 import life.league.healthjourney.journey.models.HealthJourneyItem
 import life.league.healthjourney.programs.models.HealthJourneyItemDetail
+import life.league.healthjourney.settings.ApplicationDeeplinkHandler
+import life.league.healthjourney.settings.EpoxyModelsProvider
 import life.league.healthjourney.utils.getCaption
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,6 +40,9 @@ class HealthJourneyTimelineFragment : RootFragment() {
     private val viewModel: HealthJourneyTimelineViewModel by viewModel()
     private lateinit var binding: FragmentHealthJourneyTimelineBinding
     private val analyticsTracker: AnalyticsTracker by inject()
+    private var healthJourneyTimelineHeaderProvider: EpoxyModelsProvider? =
+        HealthJourney.configuration.healthProgramsHeaderProvider?.invoke()
+    private val applicationDeeplinkHandler: ApplicationDeeplinkHandler by HealthJourney.configuration.koinApplication.koin.inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,7 +57,14 @@ class HealthJourneyTimelineFragment : RootFragment() {
         viewModel.state.observe(viewLifecycleOwner, { state ->
             binding.apply {
                 when (state) {
-                    is Loaded -> renderDataState(state().activityCategories, state().previewAvailable)
+                    is Loaded -> {
+                        renderDataState(state().activityCategories, state().previewAvailable)
+                        // Hook into the parent app's header provider so that the injected
+                        // component can tell the view when it needs to refresh.
+                        healthJourneyTimelineHeaderProvider?.requestBuildModel = {
+                            renderDataState(state().activityCategories, state().previewAvailable)
+                        }
+                    }
                     is Loading -> setViewState(loading = true)
                     is Failed -> context?.displayErrorDialog(
                         state.getErrorMessage(
@@ -61,13 +74,26 @@ class HealthJourneyTimelineFragment : RootFragment() {
                 }
             }
         })
+        healthJourneyTimelineHeaderProvider?.handleDeeplink = {
+            // The module first checks to see if it can handle the deeplink, otherwise it passes
+            // the deeplink along to the parent's application's deeplink hook
+            Uri.parse(it).let { uri ->
+                if (findNavControllerSafely()?.graph?.hasDeepLink(uri) == true) {
+                    findNavControllerSafely()?.navigate(uri)
+                } else {
+                    applicationDeeplinkHandler.handleDeeplink(it)
+                }
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
         analyticsTracker.trackSelectActivitiesTab()
         viewModel.getActivities()
+        healthJourneyTimelineHeaderProvider?.fetchData()
     }
+
 
     private fun FragmentHealthJourneyTimelineBinding.renderDataState(
         activityCategories: List<HealthActivitiesCategory>, previewAvailable: Boolean) {
@@ -82,6 +108,9 @@ class HealthJourneyTimelineFragment : RootFragment() {
     private fun EpoxyRecyclerView.buildJourney(
         activityCategories: List<HealthActivitiesCategory>, previewAvailable: Boolean) {
         withModels {
+            // Add any views that the app wants injected
+            healthJourneyTimelineHeaderProvider?.buildModels(this)
+
             activityCategories.forEachIndexed { index, category ->
                 category.apply {
                     header {

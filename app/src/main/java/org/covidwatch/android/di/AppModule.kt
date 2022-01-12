@@ -62,7 +62,7 @@ val appModule = module {
         CovidWatchAnalyticsTracker
     }
     single<UserRepository> {
-        UserRepositoryImpl(
+        org.covidwatch.android.UserRepositoryImpl(
             api = get(),
             cache = RoomCache(CoreDatabase.getDatabase(androidContext())),
             analyticsTracker = get(),

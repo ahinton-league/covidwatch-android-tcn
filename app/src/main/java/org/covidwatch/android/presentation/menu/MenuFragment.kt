@@ -35,9 +35,10 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
     private fun handleMenuItemClick(destination: Destination) {
         when (destination) {
             is Settings -> findNavController().navigate(R.id.settingsFragment)
-            is TestResults -> findNavController().navigate(R.id.testQuestionsFragment)
+            is TestResults -> findNavController().navigate(Uri.parse("https://covidwatch.com/testresults"))//findNavController().navigate(R.id.testQuestionsFragment)
             is Browser -> openBrowser(destination.url)
         }
+
     }
 
     private fun openBrowser(url: String) {

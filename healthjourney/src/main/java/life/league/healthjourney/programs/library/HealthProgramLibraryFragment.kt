@@ -15,6 +15,7 @@ import life.league.genesis.widget.dialog.ContentProviderInfo
 import life.league.healthjourney.R
 import life.league.healthjourney.analytics.viewHealthProgramLibrary
 import life.league.healthjourney.databinding.HealthProgramLibraryFragmentBinding
+import life.league.healthjourney.journey.HealthJourney
 import life.league.healthjourney.utils.getOverline
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -54,8 +55,7 @@ class HealthProgramLibraryFragment : Fragment() {
                             setImageUrl(info.imageAsset.fields.file?.url ?: "")
                         })
                         .show(requireActivity().supportFragmentManager, "ContentProviderDialogView")
-                }
-            )
+                })
             val layoutManager = GridLayoutManager(context, spanCountLimit)
             epoxyController.spanCount = spanCountLimit
             layoutManager.spanSizeLookup = epoxyController.spanSizeLookup
