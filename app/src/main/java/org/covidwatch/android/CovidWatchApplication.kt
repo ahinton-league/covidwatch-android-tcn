@@ -1,10 +1,8 @@
 package org.covidwatch.android
 
 import android.app.Application
-import com.google.common.eventbus.EventBus
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import life.league.core.analytics.AnalyticsTracker
@@ -17,13 +15,10 @@ import life.league.core.cache.dao.UserFlagsDao
 import life.league.core.cache.table.UserConfigTable
 import life.league.core.cache.table.UserFlagsTable
 import life.league.core.cache.table.UserTable
-import life.league.core.configuration.Core
-import life.league.core.configuration.CoreSettings
 import life.league.core.model.user.User
 import life.league.core.model.user.UserConfig
 import life.league.core.model.user.UserFlags
 import life.league.core.model.user.UserProfile
-import life.league.core.navigation.NullCoreNavigation
 import life.league.core.repository.Repository
 import life.league.core.repository.UserRepository
 import life.league.core.util.Log
@@ -39,7 +34,8 @@ import org.covidwatch.android.data.signedreport.SignedReportsDownloader
 import org.covidwatch.android.data.signedreport.firestore.SignedReportsUploader
 import org.covidwatch.android.di.appModule
 import org.covidwatch.android.presentation.CovidWatchDeeplinkHandler
-import org.covidwatch.android.presentation.controls.TestResultsBannerProvider
+import org.covidwatch.android.presentation.controls.ComposeTestResultsBannerProvider
+import org.covidwatch.android.presentation.controls.EpoxyTestResultsBannerProvider
 import org.koin.android.ext.android.get
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.koin.androidContext
@@ -95,7 +91,10 @@ class CovidWatchApplication : Application() {
             ),
             achievementsEnabled = true,
             healthProgramsHeaderProvider = {
-                TestResultsBannerProvider()
+                EpoxyTestResultsBannerProvider()
+            },
+            dayPagerHeaderProvider = {
+                ComposeTestResultsBannerProvider()
             },
             applicationDeeplinkHandler = CovidWatchDeeplinkHandler
         )

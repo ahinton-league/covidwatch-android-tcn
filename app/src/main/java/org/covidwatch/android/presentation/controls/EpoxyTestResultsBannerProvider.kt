@@ -5,7 +5,7 @@ import life.league.genesis.widget.model.SpacingAttrRes
 import life.league.healthjourney.settings.EpoxyModelsProvider
 import org.covidwatch.android.R
 
-class TestResultsBannerProvider : EpoxyModelsProvider() {
+class EpoxyTestResultsBannerProvider : EpoxyModelsProvider() {
     private var dataLoaded : Boolean = false
     private var testResult : String = ""
 
@@ -16,7 +16,7 @@ class TestResultsBannerProvider : EpoxyModelsProvider() {
         requestBuildModel()
     }
 
-    override fun buildModels(controller: EpoxyController) {
+    override fun buildModels(controller: EpoxyController, deeplinkHandler: (url: String) -> Unit) {
         if (dataLoaded) {
             controller.normalBanner {
                 id("covidwatch_test_results") // id is a required field
@@ -24,7 +24,7 @@ class TestResultsBannerProvider : EpoxyModelsProvider() {
                 descriptionText(testResult)
                 actionText("Add new test results")
                 onClick{ _->
-                    handleDeeplink("https://covidwatch.com/testresults")
+                    deeplinkHandler("https://covidwatch.com/testresults")
                 }
                 backgroundImageResource(R.drawable.bg_splash_fragment)
                 marginRes(

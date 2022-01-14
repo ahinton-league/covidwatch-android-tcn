@@ -1,5 +1,6 @@
 package life.league.healthjourney.journey.timeline
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
@@ -27,10 +29,13 @@ import life.league.core.util.LocaleUtils
 import life.league.genesis.extension.setGenesisContent
 import life.league.healthjourney.analytics.trackActivitySelection
 import life.league.healthjourney.components.HealthJourneyPageControls
+import life.league.healthjourney.journey.HealthJourney
 import life.league.healthjourney.journey.HealthJourneyFragmentDirections
 import life.league.healthjourney.journey.HealthJourneyViewModel
 import life.league.healthjourney.journey.models.HealthJourneyItem
 import life.league.healthjourney.journey.timeline.day.HealthJourneyDayScreen
+import life.league.healthjourney.settings.ApplicationDeeplinkHandler
+import life.league.healthjourney.settings.ComposeContentProvider
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -51,13 +56,17 @@ private fun HealthJourneyDayPagerScreen(
     onJumpedToToday: () -> Unit,
     onItemClick: (HealthJourneyItem) -> Unit,
     viewModel: HealthJourneyDayPagerViewModel,
+    headerContent: (@Composable () -> Unit)? = null
 ) {
     Column(modifier = modifier) {
         val pagerState = rememberPagerState(initialPage = updatedCurrentPage)
         val coroutineScope = rememberCoroutineScope()
 
         pagerState.apply {
-            SynchronizeCurrentPage(updateCurrentPage = updatedCurrentPage, coroutineScope = coroutineScope)
+            SynchronizeCurrentPage(
+                updateCurrentPage = updatedCurrentPage,
+                coroutineScope = coroutineScope
+            )
             CurrentPageObserver(onPageChange)
             if (jumpToTodayEvent) {
                 onJumpedToToday()
@@ -68,6 +77,9 @@ private fun HealthJourneyDayPagerScreen(
                 }
             }
         }
+
+        headerContent?.invoke()
+
 
         HealthJourneyPageControls(
             modifier = Modifier.fillMaxWidth(),
@@ -89,7 +101,11 @@ private fun HealthJourneyDayPagerScreen(
 
             LaunchedEffect(lazyListState) {
                 snapshotFlow { lazyListState.firstVisibleItemScrollOffset }.collect {
-                    viewModel.setScrollPositionForDay(dates[page], lazyListState.firstVisibleItemIndex, lazyListState.firstVisibleItemScrollOffset)
+                    viewModel.setScrollPositionForDay(
+                        dates[page],
+                        lazyListState.firstVisibleItemIndex,
+                        lazyListState.firstVisibleItemScrollOffset
+                    )
                 }
             }
 
@@ -100,7 +116,6 @@ private fun HealthJourneyDayPagerScreen(
                 lazyListState = lazyListState,
             )
         }
-
     }
 }
 
@@ -117,7 +132,10 @@ private fun PagerState.CurrentPageObserver(block: (Int) -> Unit) {
 
 @Composable
 @ExperimentalPagerApi
-private fun PagerState.SynchronizeCurrentPage(updateCurrentPage: Int, coroutineScope: CoroutineScope) {
+private fun PagerState.SynchronizeCurrentPage(
+    updateCurrentPage: Int,
+    coroutineScope: CoroutineScope
+) {
     if (updateCurrentPage != currentPage) {
         LaunchedEffect(this) {
             coroutineScope.launch {
@@ -150,11 +168,16 @@ class HealthJourneyDayPagerFragment : RootFragment() {
     private val viewModel: HealthJourneyDayPagerViewModel by viewModel()
     private val parentViewModel: HealthJourneyViewModel by sharedViewModel()
     private val analyticsTracker: AnalyticsTracker by inject()
+    private val dayPagerHeaderProvider: ComposeContentProvider? =
+        HealthJourney.configuration.dayPagerHeaderProvider?.invoke()
+    private val applicationDeeplinkHandler: ApplicationDeeplinkHandler by HealthJourney.configuration.koinApplication.koin.inject()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View = ComposeView(requireContext()).apply {
+        dayPagerHeaderProvider?.refreshData()
         setGenesisContent {
             with(viewModel) {
                 val locale = LocaleUtils.getCurrentLocale(LocalContext.current)
@@ -163,7 +186,8 @@ class HealthJourneyDayPagerFragment : RootFragment() {
                     modifier = Modifier.fillMaxSize(),
                     todayIndex = todayIndex,
                     title = DateUtils.formatDateMonthDay(locale, selectedDate),
-                    overline = overline?.run { stringResource(id = stringRes) } ?: DateUtils.weekDay(locale, selectedDate),
+                    overline = overline?.run { stringResource(id = stringRes) }
+                        ?: DateUtils.weekDay(locale, selectedDate),
                     onPageChange = ::onPageChange,
                     dates = dates,
                     jumpToTodayEvent = parentViewModel.jumpToToday,
@@ -177,8 +201,23 @@ class HealthJourneyDayPagerFragment : RootFragment() {
                             )
                         )
                     },
-                    updatedCurrentPage = viewModel.currentPage
+                    updatedCurrentPage = viewModel.currentPage,
+                    headerContent = {
+                        dayPagerHeaderProvider?.Content(deeplinkHandler = this@HealthJourneyDayPagerFragment::handleDeeplink)
+                    }
                 )
+            }
+        }
+    }
+
+    private fun handleDeeplink(url: String) {
+        // The module first checks to see if it can handle the deeplink, otherwise it passes
+        // the deeplink along to the parent's application's deeplink hook
+        Uri.parse(url).let { uri ->
+            if (findNavControllerSafely()?.graph?.hasDeepLink(uri) == true) {
+                findNavControllerSafely()?.navigate(uri)
+            } else {
+                applicationDeeplinkHandler.handleDeeplink(url)
             }
         }
     }

@@ -49,6 +49,14 @@ android {
         jvmTarget = "1.8"
     }
 
+    // added for compose injection
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion composeVersion
+    }
+
 //    dataBinding {
 //        enabled = true
 //    }
@@ -94,9 +102,23 @@ dependencies {
     // I think we need this to prevent a random unmarshalling error with login
     implementation 'com.auth0.android:auth0:2.5.0'
 
-    // Epoxy - needed to inject a custom control into Health Journey
+    // Epoxy - needed to inject a custom control into Health Journey's Epoxy Recycler view
     api "com.airbnb.android:epoxy:$epoxyVersion"
     kapt "com.airbnb.android:epoxy-processor:$epoxyProcessorVersion"
+
+    // Compose - needed to inject a custom control into Health Journey's compose view
+    // (all of this probably isn't needed)
+    implementation "androidx.compose.runtime:runtime:$composeVersion"
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.foundation:foundation:$composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$composeVersion"
+    implementation "androidx.compose.material:material:$composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling:$composeVersion"
+    implementation "com.google.android.material:compose-theme-adapter:$composeVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:$constraintLayoutComposeVersion"
+    implementation "androidx.activity:activity-compose:$activityComposeVersion"
+    implementation "com.google.accompanist:accompanist-pager:$accompanistPagerVersion"
 
     implementation "com.github.EverlongProject:genesis-android:$genesisVersion"
     implementation "com.github.EverlongProject.league-core-android:league-core:$leagueCoreNetworkingAuthVersion"

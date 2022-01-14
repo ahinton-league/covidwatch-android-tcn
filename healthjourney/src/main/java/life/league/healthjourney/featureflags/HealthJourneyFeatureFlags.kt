@@ -15,7 +15,7 @@ object HealthJourneyFeatureFlags : FeatureFlags {
         id = "rel_health_journey_revamp",
         name = "Health Journey Revamp",
         description = "Shows the new revamped health journey activities view",
-        defaultValue = false
+        defaultValue = true
     )
 
     val wearableProgramManualFlow = FeatureFlag.BooleanFeatureFlag(

@@ -74,17 +74,6 @@ class HealthJourneyTimelineFragment : RootFragment() {
                 }
             }
         })
-        healthJourneyTimelineHeaderProvider?.handleDeeplink = {
-            // The module first checks to see if it can handle the deeplink, otherwise it passes
-            // the deeplink along to the parent's application's deeplink hook
-            Uri.parse(it).let { uri ->
-                if (findNavControllerSafely()?.graph?.hasDeepLink(uri) == true) {
-                    findNavControllerSafely()?.navigate(uri)
-                } else {
-                    applicationDeeplinkHandler.handleDeeplink(it)
-                }
-            }
-        }
     }
 
     override fun onResume() {
@@ -105,11 +94,23 @@ class HealthJourneyTimelineFragment : RootFragment() {
         }
     }
 
+    private fun handleDeeplink(url : String) {
+        // The module first checks to see if it can handle the deeplink, otherwise it passes
+        // the deeplink along to the parent's application's deeplink hook
+        Uri.parse(url).let { uri ->
+            if (findNavControllerSafely()?.graph?.hasDeepLink(uri) == true) {
+                findNavControllerSafely()?.navigate(uri)
+            } else {
+                applicationDeeplinkHandler.handleDeeplink(url)
+            }
+        }
+    }
+
     private fun EpoxyRecyclerView.buildJourney(
         activityCategories: List<HealthActivitiesCategory>, previewAvailable: Boolean) {
         withModels {
             // Add any views that the app wants injected
-            healthJourneyTimelineHeaderProvider?.buildModels(this)
+            healthJourneyTimelineHeaderProvider?.buildModels(this, this@HealthJourneyTimelineFragment::handleDeeplink)
 
             activityCategories.forEachIndexed { index, category ->
                 category.apply {

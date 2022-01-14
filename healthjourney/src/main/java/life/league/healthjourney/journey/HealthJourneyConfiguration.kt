@@ -10,6 +10,7 @@ import life.league.healthjourney.featureflags.HealthJourneyFeatureFlags
 import life.league.healthjourney.injection.HealthJourneyModule
 import life.league.healthjourney.settings.ApplicationDeeplinkHandler
 import life.league.healthjourney.settings.EpoxyModelsProvider
+import life.league.healthjourney.settings.ComposeContentProvider
 import life.league.healthjourney.settings.NullApplicationDeeplinkHandler
 import life.league.networking.socket.API
 import org.koin.core.Koin
@@ -35,6 +36,7 @@ object HealthJourney {
         api: API,
         achievementsEnabled: Boolean = false,
         healthProgramsHeaderProvider : (() -> EpoxyModelsProvider)? = null,
+        dayPagerHeaderProvider: (() -> ComposeContentProvider)? = null,
         applicationDeeplinkHandler: ApplicationDeeplinkHandler = NullApplicationDeeplinkHandler()
     ) {
         featureFlagsUtils.addFeatureFlagContainers(HealthJourneyFeatureFlags)
@@ -44,6 +46,7 @@ object HealthJourney {
                 drawables = drawables,
                 strings = strings,
                 healthProgramsHeaderProvider = healthProgramsHeaderProvider,
+                dayPagerHeaderProvider = dayPagerHeaderProvider,
                 koinApplication = koinApplication {
                     modules(
                         module {
@@ -72,6 +75,7 @@ internal class HealthJourneyConfiguration(
     val strings: HealthJourneyStrings,
     val achievementsEnabled: Boolean,
     val healthProgramsHeaderProvider : (() -> EpoxyModelsProvider)?,
+    val dayPagerHeaderProvider: (() -> ComposeContentProvider)?
 )
 
 

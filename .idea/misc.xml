@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/compose-model-1642175959199.xml" value="0.335" />
         <entry key="../../.gradle/caches/transforms-3/947f5b94a407873b1fea3bbafb935e2a/transformed/jetified-genesis-android-4.3.2/res/drawable/background_card_transparent.xml" value="0.27076923076923076" />
         <entry key="app/src/main/res/drawable-mdpi/il_health_journey_empty.xml" value="0.4338461538461538" />
         <entry key="app/src/main/res/drawable-mdpi/il_high_five.xml" value="0.4338461538461538" />
@@ -14,6 +15,7 @@
         <entry key="app/src/main/res/drawable/bg_test_confirmation.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/drawable/bkgd_card.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/drawable/bkgd_card_darker.xml" value="0.1935185185185185" />
+        <entry key="app/src/main/res/drawable/ic_logo.xml" value="0.31979166666666664" />
         <entry key="app/src/main/res/drawable/rounded_corner.xml" value="0.1935185185185185" />
         <entry key="app/src/main/res/drawable/rounded_corner_primary.xml" value="0.27076923076923076" />
         <entry key="app/src/main/res/drawable/rounded_corner_secondary.xml" value="0.27076923076923076" />
